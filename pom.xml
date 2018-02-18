@@ -1,0 +1,41 @@
+<project>
+
+  <modelVersion>4.0.0</modelVersion>
+ 
+ <groupId>com.sample.app</groupId>
+  <artifactId>ApplicationEAR</artifactId>
+  <version>1</version>
+  <packaging>ear</packaging>
+ 
+ <dependencies>
+    <dependency>
+      <groupId>com.sample.app</groupId>
+      <artifactId>ApplicationWAR</artifactId>
+      <version>1</version>
+	  <type>war</type>
+	</dependency>
+</dependencies>	
+ 
+ 
+ <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-ear-plugin</artifactId>
+        <version>2.10.1</version>
+        <configuration>
+			<modules>
+				<webModule>
+					<groupId>com.sample.app</groupId>
+					<artifactId>ApplicationWAR</artifactId>
+					<bundleFileName>application.war</bundleFileName >
+					<contextRoot>/application</contextRoot >
+				</webModule>
+			</modules>
+          <!-- configuration elements goes here -->
+        </configuration>
+      </plugin>
+    </plugins>
+	<finalName>application</finalName>
+  </build>
+ 
+</project>
